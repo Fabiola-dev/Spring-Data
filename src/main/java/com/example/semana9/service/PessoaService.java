@@ -4,6 +4,8 @@ import com.example.semana9.entity.PessoaEntity;
 import com.example.semana9.repository.PessoaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PessoaService {
 
@@ -12,10 +14,11 @@ public class PessoaService {
     public PessoaService(PessoaRepository repository) {
         this.repository = repository;
     }
-
-
     public PessoaEntity savePessoa(PessoaEntity pessoa) {
         PessoaEntity person = this.repository.save(pessoa);
         return person;
+    }
+    public List<PessoaEntity> buscarPessoas() {
+        return this.repository.findAll();
     }
 }
