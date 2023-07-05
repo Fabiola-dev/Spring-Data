@@ -5,6 +5,7 @@ import com.example.semana9.repository.PessoaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PessoaService {
@@ -20,5 +21,9 @@ public class PessoaService {
     }
     public List<PessoaEntity> buscarPessoas() {
         return this.repository.findAll();
+    }
+    public Optional<PessoaEntity> buscarPessoaPorId(Long id) {
+        return this.repository.findById(id);
+
     }
 }
