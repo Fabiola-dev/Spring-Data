@@ -13,6 +13,7 @@ public class PessoaService {
     private PessoaRepository repository;
 
     public PessoaService(PessoaRepository repository) {
+
         this.repository = repository;
     }
     public PessoaEntity savePessoa(PessoaEntity pessoa) {
@@ -20,10 +21,14 @@ public class PessoaService {
         return person;
     }
     public List<PessoaEntity> buscarPessoas() {
+
         return this.repository.findAll();
     }
     public Optional<PessoaEntity> buscarPessoaPorId(Long id) {
         return this.repository.findById(id);
+    }
 
+    public List<PessoaEntity> buscarPorStatusTrue(boolean status) {
+        return this.repository.findByStatus(true);
     }
 }

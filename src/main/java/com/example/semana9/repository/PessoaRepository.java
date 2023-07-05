@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface PessoaRepository extends JpaRepository<PessoaEntity, Long> {
 
-    List<PessoaEntity> buscarPessoas(Long id);
+    //List<PessoaEntity> buscarPessoas(Long id);
+
+    List<PessoaEntity> findByStatus(Boolean status);
 
 }
