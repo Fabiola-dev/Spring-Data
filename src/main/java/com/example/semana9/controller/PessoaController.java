@@ -15,10 +15,18 @@ public class PessoaController {
     public PessoaController(PessoaService service){
         this.service = service;
     }
+
     @PostMapping
     public PessoaEntity insert(@RequestBody PessoaEntity pessoa) {
+
         return this.service.savePessoa(pessoa);
     }
+
+    @PutMapping
+    public PessoaEntity atualizarPessoa(@RequestBody PessoaEntity pessoa) {
+        return this.service.atualizarPessoa(pessoa);
+    }
+
     @GetMapping
     public List<PessoaEntity> search() {
         return this.service.buscarPessoas();
