@@ -2,6 +2,7 @@ package com.example.semana9.controller;
 
 import com.example.semana9.entity.PessoaEntity;
 import com.example.semana9.service.PessoaService;
+import jakarta.annotation.Nullable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,9 +34,10 @@ public class PessoaController {
     }
 
     @GetMapping
-    public List<PessoaEntity> search() {
-        return this.service.buscarPessoas();
+    public List<PessoaEntity> buscarTodasPessoas(@Nullable @RequestParam String q) {
+        return this.service.buscarPessoas(q);
     }
+
 
     @GetMapping("/{id}")
     public Optional<PessoaEntity> getById(@PathVariable Long id) {
@@ -45,4 +47,9 @@ public class PessoaController {
     public List<PessoaEntity> statusTrue() {
         return service.buscarPorStatusTrue(true);
     }
+
+//    @GetMapping
+//    public List<PessoaEntity> search() {
+//        return this.service.buscarPessoas();
+//    }
 }

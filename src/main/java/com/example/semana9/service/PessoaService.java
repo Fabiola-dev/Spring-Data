@@ -29,13 +29,17 @@ public class PessoaService {
         }
         return null;
     }
-
     public void excluirPessoa(Long id) {
         this.repository.deleteById(id);
     }
 
-
-    public List<PessoaEntity> buscarPessoas() {return this.repository.findAll();}
+    public List<PessoaEntity> buscarPessoas(String filter) {
+        if (filter == null || filter.isEmpty()) {
+            return this.repository.findAll();
+        } else {
+            return this.repository.findAllFilter(filter);
+        }
+    }
 
     public Optional<PessoaEntity> buscarPessoaPorId(Long id) {
         return this.repository.findById(id);
