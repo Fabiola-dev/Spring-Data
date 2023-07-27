@@ -27,6 +27,11 @@ public class PessoaController {
         return this.service.atualizarPessoa(pessoa);
     }
 
+    @DeleteMapping("/{id}")
+    public void ExcluirPessoa(@PathVariable Long id) {
+        this.service.excluirPessoa(id);
+    }
+
     @GetMapping
     public List<PessoaEntity> search() {
         return this.service.buscarPessoas();
