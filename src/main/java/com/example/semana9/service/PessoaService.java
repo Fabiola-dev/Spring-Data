@@ -3,6 +3,8 @@ package com.example.semana9.service;
 import com.example.semana9.entity.PessoaEntity;
 import com.example.semana9.repository.PessoaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,6 +30,9 @@ public class PessoaService {
         return null;
     }
 
+    public void excluirPessoa(Long id) {
+        this.repository.deleteById(id);
+    }
 
 
     public List<PessoaEntity> buscarPessoas() {return this.repository.findAll();}
